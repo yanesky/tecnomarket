@@ -1,5 +1,5 @@
 from django.contrib import admin
-from app.models import Marca, Producto
+from app.models import Marca, Producto, Contacto
 
 # Register your models here.
 
@@ -8,7 +8,8 @@ class ProductoAdmin(admin.ModelAdmin):
     list_editable = ["precio"]
     search_fields = ["nombre"]
     list_filter = ["nuevo"]
-    list_per_page = 1
+    list_per_page = 5
 
 admin.site.register(Marca)
 admin.site.register(Producto, ProductoAdmin)
+admin.site.register(Contacto)
