@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from app.models import Marca, Producto
 from app.forms import ContactoForm, ProductoForm
 
@@ -56,26 +56,25 @@ def listar(request):
     return render(request, 'app/producto/listar.html', data )
 
 def modificar(request,pk):
+    producto = get_object_or_404(Producto, pk=pk)
     
-    data={
-
-        'form' : ProductoForm()
-
+    data = {
+        'form': ProductoForm(instance=producto)
     }
-
+    
     if request.method == 'POST':
-        form = ProductoForm(data=request.POST, files= request.FILES)
-        if form.is_valid:
+        form = ProductoForm(data= request.POST, files = request.FILES, instance= producto)
+        if form.is_valid():
             form.save()
-            return redirect('home')
-        else:
-            data['form'] = form
-            return render(request, 'app/producto/modificar.html', data)
-    else:
-        instancia = Producto.objects.get(id=pk)
-        data['form']= ProductoForm(instance=instancia)
-        return render(request, 'app/producto/modificar.html', data)
-
-def eliminar(request):
-    pass
+            return redirect(to='listar')
+        data['form'] = form
+    return render(request, 'app/producto/modificar.html',data)            
+    
+    
+    
+def eliminar(request,pk):
+    borrar = Producto.objects.get(pk=pk)
+    borrar.delete()
+    return redirect('listar')
+    
     

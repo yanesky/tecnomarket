@@ -13,6 +13,7 @@
                 <th>Precio</th>
                 <th>Marca</th>
                 <th>Nuevo</th>
+                <th>Opciones</th>
                 
             </tr>
             {% for i in lista %}
@@ -26,6 +27,10 @@
                         {% else %}
                         No
                         {% endif%}
+                    </td>
+                    <td>
+                        <a href="{% url 'modificar' i.pk %}" class="btn btn-primary">Editar</a>
+                        <a href="{% url 'eliminar' i.pk %}" class="btn btn-danger">Eliminar</a>
                     </td>
                 </tr>
             {% endfor %}
