@@ -11,7 +11,7 @@
         
         {% endblock css %}
         <link rel="stylesheet" href="{% static 'app/css/estilos.css' %}">
-        
+         
     </head>
     <body>
     
@@ -36,6 +36,9 @@
                         </li>
                         <li>
                             <a href="{% url 'agregar' %}">Agregar</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'listar' %}">Listar</a>
                         </li>
                     </ul>
                 </nav>

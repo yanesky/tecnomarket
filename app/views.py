@@ -47,3 +47,35 @@ def agregar(request):
             return render(request, 'app/producto/agregar.html', data)
     else:
         return render(request, 'app/producto/agregar.html', data)
+    
+def listar(request):
+    data = {
+        'lista' : Producto.objects.all(),
+    }
+    
+    return render(request, 'app/producto/listar.html', data )
+
+def modificar(request,pk):
+    
+    data={
+
+        'form' : ProductoForm()
+
+    }
+
+    if request.method == 'POST':
+        form = ProductoForm(data=request.POST, files= request.FILES)
+        if form.is_valid:
+            form.save()
+            return redirect('home')
+        else:
+            data['form'] = form
+            return render(request, 'app/producto/modificar.html', data)
+    else:
+        instancia = Producto.objects.get(id=pk)
+        data['form']= ProductoForm(instance=instancia)
+        return render(request, 'app/producto/modificar.html', data)
+
+def eliminar(request):
+    pass
+    
