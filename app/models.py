@@ -29,7 +29,7 @@ opciones_consulta = (
 ) 
 class Contacto(models.Model):
      nombre = models.CharField(max_length=50)
-     correo = models.EmailField()
+     correo = models.EmailField(unique=True)
      tipo_consulta = models.IntegerField(choices = opciones_consulta)
      mensaje = models.TextField()
      avisos = models.BooleanField()
