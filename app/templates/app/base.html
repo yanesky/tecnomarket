@@ -40,6 +40,19 @@
                         <li>
                             <a href="{% url 'listar' %}">Listar</a>
                         </li>
+                            {% if user.is_authenticated %}
+                            <li>
+                                <a href="{% url 'logout' %}">Cerrar sesion</a>
+                            </li>
+                            <li>
+                                <a href="#">@{{ user.username }}</a>
+                            </li>
+                            {% else %}
+                            <li>
+                                <a href="{% url 'login' %}">Login</a>
+                            </li>
+                            {% endif %}
+                        
                     </ul>
                 </nav>
     
@@ -89,7 +102,7 @@
                 </script>
             {% endfor %}
         {% endif %}
-        
+
         {% block js %}
         {% endblock js %}
     

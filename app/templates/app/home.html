@@ -38,7 +38,6 @@
     <div class="productos">
         {% for i in test %}
         <div class="producto">
-
             <div class="contenedor_producto">
                 {% if i.imagen %}
                     <img src="{{ i.imagen.url }}" alt="imagen producto">
@@ -51,14 +50,10 @@
                     {% load humanize %}
                     <h3>${{ i.precio | intcomma }}</h3>
                 </div>
-
             </div>
-
         </div>
         {% endfor %}
-
     </div>
-        
 {% endblock contenido %}
 
 
