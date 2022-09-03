@@ -1,5 +1,30 @@
 {% extends 'app/base.html' %}
 {% load humanize %}
+
+{% block js %}
+    <script>
+        function eliminarProducto(id) {
+            Swal.fire(
+                {
+                    'title':'Estas seguro de borrar estos?',
+                    'text':'Esta accion despues no se puede deshacer',
+                    'icon':'question',
+                    'showCancelButton':true,
+                    'cancelButtonText':'No, Cancelar',
+                    'confirmButtonText':'Si,Eliminar',
+                    'reverseButtons':true
+                })
+                .then(function(result) {
+                    console.log(id)
+                    if(result.isConfirmed) {
+                        window.location.href = "/eliminar/"+id
+                    }
+                })
+        }
+    </script>
+{% endblock %}
+
+
 {% block contenido %}
 <br><br><br>
 <div class="card">
@@ -30,7 +55,7 @@
                     </td>
                     <td>
                         <a href="{% url 'modificar' i.pk %}" class="btn btn-primary">Editar</a>
-                        <a href="{% url 'eliminar' i.pk %}" class="btn btn-danger">Eliminar</a>
+                        <a href="#" onclick="eliminarProducto({{i.id}})" class="btn btn-danger">Eliminar</a>
                     </td>
                 </tr>
             {% endfor %}
