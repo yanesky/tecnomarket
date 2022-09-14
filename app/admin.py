@@ -10,7 +10,7 @@ class ProductoAdmin(admin.ModelAdmin):
     search_fields = ["nombre"]
     list_filter = ["nuevo"]
     list_per_page = 5
-    #form = ProductoForm
+    form = ProductoForm
 
 admin.site.register(Marca)
 admin.site.register(Producto, ProductoAdmin)

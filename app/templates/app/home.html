@@ -36,23 +36,27 @@
 
     <h2>Productos</h2>
     <div class="productos">
-        {% for i in test %}
-        <div class="producto">
-            <div class="contenedor_producto">
-                {% if i.imagen %}
-                    <img src="{{ i.imagen.url }}" alt="imagen producto">
-                {% else %}
-                    <img src="{% static 'app/img/images.png'  %}" alt="imagen producto">
-                {% endif %}
-                <div class="detalle">
-                    <h5>{{ i.marca.nombre | capfirst }}</h5>
-                    <h2>{{ i.nombre | title }}</h2>
-                    {% load humanize %}
-                    <h3>${{ i.precio | intcomma }}</h3>
+        {% if test %}
+            {% for i in test %}
+            <div class="producto">
+                <div class="contenedor_producto">
+                    {% if i.imagen %}
+                        <img src="{{ i.imagen.url }}" alt="imagen producto">
+                    {% else %}
+                        <img src="{% static 'app/img/images.png'  %}" alt="imagen producto">
+                    {% endif %}
+                    <div class="detalle">
+                        <h5>{{ i.marca.nombre | capfirst }}</h5>
+                        <h2>{{ i.nombre | title }}</h2>
+                        {% load humanize %}
+                        <h3>${{ i.precio | intcomma }}</h3>
+                    </div>
                 </div>
             </div>
-        </div>
-        {% endfor %}
+            {% endfor %}
+        {% else %}
+            <h1>no hay productos para mostrar</h1>
+        {% endif %}
     </div>
 {% endblock contenido %}
 
