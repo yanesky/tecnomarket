@@ -7,12 +7,25 @@ from django.http import Http404
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required, permission_required
 from rest_framework import viewsets
-from .serializers import ProductoSerializers
+from .serializers import ProductoSerializers, MarcaSerializer
 
 
+class MarcaViewset(viewsets.ModelViewSet):
+    queryset = Marca.objects.all()
+    serializer_class = MarcaSerializer
 class ProductoViewset(viewsets.ModelViewSet):
     queryset = Producto.objects.all()
     serializer_class = ProductoSerializers
+    
+    def get_queryset(self):
+        productos = Producto.objects.all()
+        nombre = self.request.GET.get('nombre')
+        if nombre:
+            productos = Producto.objects.filter(nombre__contains=nombre)
+            return productos
+        return productos
+            
+        
 
 def home(request):
     productos = Producto.objects.all()

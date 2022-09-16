@@ -1,0 +1,177 @@
+*.log
+*.pot
+*.pyc
+crm/local_settings.py
+node_modules
+.vscode/
+
+Django###
+
+*.log
+*.pot
+*.pyc
+local_settings.py
+
+
+###Python###
+
+*.py[cod]
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+#Translations
+*.mo
+
+#Mr Developer
+.mr.developer.cfg
+robots.txt
+
+
+### compiled css files ###
+static/css/master.css
+
+### compiled js files ###
+hb/static/js/coffee/*.js
+
+hb/static/js/coffee/master.js
+static/js/coffee/*.js
+
+.directory
+
+### FTP home dir ###
+hb/ftp_home/
+.idea
+hb/static/css/master.css
+hb/static/css/responsive.css
+env
+
+### Unit testing coverage ###
+.coverage
+htmlcov
+
+#Redis server
+*.rdb
+celerybeat-schedule
+celerybeat.pid
+
+# static folders
+admin
+debug_toolbar
+autocomplete_light
+static_local
+static_server
+
+.vscode
+venv/*.log
+*.pot
+*.pyc
+crm/local_settings.py
+node_modules
+.vscode/
+
+Django###
+
+*.log
+*.pot
+*.pyc
+local_settings.py
+
+
+###Python###
+
+*.py[cod]
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+#Translations
+*.mo
+
+#Mr Developer
+.mr.developer.cfg
+robots.txt
+
+
+### compiled css files ###
+static/css/master.css
+
+### compiled js files ###
+hb/static/js/coffee/*.js
+
+hb/static/js/coffee/master.js
+static/js/coffee/*.js
+
+.directory
+
+### FTP home dir ###
+hb/ftp_home/
+.idea
+hb/static/css/master.css
+hb/static/css/responsive.css
+env
+
+### Unit testing coverage ###
+.coverage
+htmlcov
+
+#Redis server
+*.rdb
+celerybeat-schedule
+celerybeat.pid
+
+# static folders
+admin
+debug_toolbar
+autocomplete_light
+static_local
+static_server
+
+.vscode
+venv/
